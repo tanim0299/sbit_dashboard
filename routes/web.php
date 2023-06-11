@@ -9,7 +9,13 @@ use App\Http\Controllers\UserMenuActionController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PrincipleController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\NoticesController;
+use App\Http\Controllers\UsefulController;
+use App\Http\Controllers\MemberController;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +30,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::get('/', function () {
+
+    return redirect('/login');
+
+});
+
 
 
 
@@ -156,5 +170,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('role', RoleController::class);
 
     Route::resource('permission', PermissionController::class);
+
+    // My Route
+
+    Route::resource('pages', PagesController::class);
+    Route::resource('principle', PrincipleController::class);
+    Route::resource('photogallerys', PhotoController::class);
+    Route::resource('videogallerys', VideoController::class);
+    Route::resource('notices', NoticesController::class);
+    Route::resource('usefullink', UsefulController::class);
+    Route::resource('members', MemberController::class);
 
 });
