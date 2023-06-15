@@ -56,7 +56,7 @@
     @if ($menu_element['show'])
     <li class="side-nav-item {{ $menu_element['parent_active_class'] ? 'menuitem-active' : '' }}">
         <a @if ($menu_element['menu_link']) href="{{ $menu_element['menu_link'] }}" @else data-bs-toggle="collapse" href="#sidebarDashboards{{ $key }}" aria-expanded="false" aria-controls="sidebarDashboards{{ $key }}" @endif class="side-nav-link">
-            <i class="uil-home-alt"></i>
+            <i class="uil-suitcase"></i>
             <span> {!! \App\Helpers\MenuHelper::menuName($menu) !!} </span>
             @if (count($menu->children) > 0)
             <span class="menu-arrow"></span>

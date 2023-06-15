@@ -16,6 +16,22 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\NoticesController;
 use App\Http\Controllers\UsefulController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\AcademiccalenderController;
+use App\Http\Controllers\RoutineController;
+use App\Http\Controllers\HolidaylistController;
+use App\Http\Controllers\AdmissioninfoController;
+
+use App\Http\Controllers\ExamroutineController;
+use App\Http\Controllers\SyllabusController;
+use App\Http\Controllers\LessonplanController;
+use App\Http\Controllers\SuggestionController;
+
+use App\Http\Controllers\ClassController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\SectionController;
+
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\TeacherstaffController;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -180,5 +196,27 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('notices', NoticesController::class);
     Route::resource('usefullink', UsefulController::class);
     Route::resource('members', MemberController::class);
+
+    Route::resource('academiccalender', AcademiccalenderController::class);
+    Route::resource('holidaylist', HolidaylistController::class);
+
+    Route::resource('admissioninfo', AdmissioninfoController::class);
+
+    Route::resource('addclass', ClassController::class);
+    Route::resource('addgroup', GroupController::class);
+    Route::resource('addsection', SectionController::class);
+    Route::get('getgroup/{class_id}', [SectionController::class, 'getgroup']);
+    
+    Route::resource('classroutine', RoutineController::class);
+
+    Route::resource('examroutine', ExamroutineController::class);
+    Route::resource('syllabus', SyllabusController::class);
+    Route::resource('lessonplan', LessonplanController::class);
+    Route::resource('suggestion', SuggestionController::class);
+
+    Route::resource('department', DepartmentController::class);
+    Route::resource('teacherstaff', TeacherstaffController::class);
+
+
 
 });

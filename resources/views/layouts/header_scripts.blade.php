@@ -13,7 +13,7 @@
 <!-- App css -->
 <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="light-style">
-<link href="{{ asset('assets/css/app-dark.min.css') }}" rel="stylesheet" type="text/css" id="dark-style">
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
@@ -31,4 +31,12 @@
     .content-page {
         padding: 15px 12px 65px !important;
     }
+    .leftside-menu{
+        background: #313a46!important;
+        color: #000!important;
+    }
+
+     .leftside-menu li a{
+        color: #8391a2!important;
+     }
 </style>
