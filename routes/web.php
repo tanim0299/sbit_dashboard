@@ -32,6 +32,7 @@ use App\Http\Controllers\SectionController;
 
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\TeacherstaffController;
+use App\Http\Controllers\SettingController;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -216,6 +217,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('department', DepartmentController::class);
     Route::resource('teacherstaff', TeacherstaffController::class);
+
+
+    Route::resource('setting', SettingController::class);
 
 
 
