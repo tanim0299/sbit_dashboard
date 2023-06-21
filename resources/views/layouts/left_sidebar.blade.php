@@ -1,23 +1,28 @@
-﻿<!-- ========== Left Sidebar Start ========== -->
+﻿@php
+  $setting = DB::table('setting')->first();
+@endphp
+
+
+<!-- ========== Left Sidebar Start ========== -->
 <div class="leftside-menu">
 
     <!-- LOGO -->
     <a href="/" class="logo text-center logo-light">
         <span class="logo-lg">
-            <img src="{{ asset('Frontend/img') }}/logo.png" alt="" height="50">
+            <img src="{{ asset($setting->image) }}" alt="" height="50">
         </span>
         <span class="logo-sm">
-            <img src="{{ asset('Frontend/img') }}/logo.png" alt="" height="15">
+            <img src="{{ asset($setting->image) }}" alt="" height="15">
         </span>
     </a>
 
     <!-- LOGO -->
     <a href="/" class="logo text-center logo-dark">
         <span class="logo-lg">
-            <img src="{{ asset('Frontend/img') }}/logo.png" alt="" height="16">
+            <img src="{{ asset($setting->image) }}" alt="" height="16">
         </span>
         <span class="logo-sm">
-            <img src="{{ asset('Frontend/img') }}/logo.png" alt="" height="16">
+            <img src="{{ asset($setting->image) }}" alt="" height="16">
         </span>
     </a>
 
@@ -41,45 +46,45 @@
             </li>
         </ul>
     </div>
-    </li> --}}
+</li> --}}
 
-    <li class="side-nav-title side-nav-item">Dynamic Menu</li>
+<li class="side-nav-title side-nav-item">Dynamic Menu</li>
 
-    @foreach ($side_menus as $key => $menu)
+@foreach ($side_menus as $key => $menu)
 
-    @php
-    $menu_element = App\Helpers\MenuHelper::MenuElement($menu, request()->segment(1));
-    $role = Spatie\Permission\Models\Role::query()->where('name',auth()->user()->getRoleNames()->first())->first();
-    if(($menu == 'Menu Management' || $menu == 'Menu' ) && $role->id != 1) continue;
-    @endphp
+@php
+$menu_element = App\Helpers\MenuHelper::MenuElement($menu, request()->segment(1));
+$role = Spatie\Permission\Models\Role::query()->where('name',auth()->user()->getRoleNames()->first())->first();
+if(($menu == 'Menu Management' || $menu == 'Menu' ) && $role->id != 1) continue;
+@endphp
 
-    @if ($menu_element['show'])
-    <li class="side-nav-item {{ $menu_element['parent_active_class'] ? 'menuitem-active' : '' }}">
-        <a @if ($menu_element['menu_link']) href="{{ $menu_element['menu_link'] }}" @else data-bs-toggle="collapse" href="#sidebarDashboards{{ $key }}" aria-expanded="false" aria-controls="sidebarDashboards{{ $key }}" @endif class="side-nav-link">
-            <i class="uil-suitcase"></i>
-            <span> {!! \App\Helpers\MenuHelper::menuName($menu) !!} </span>
-            @if (count($menu->children) > 0)
-            <span class="menu-arrow"></span>
-            @endif
-        </a>
+@if ($menu_element['show'])
+<li class="side-nav-item {{ $menu_element['parent_active_class'] ? 'menuitem-active' : '' }}">
+    <a @if ($menu_element['menu_link']) href="{{ $menu_element['menu_link'] }}" @else data-bs-toggle="collapse" href="#sidebarDashboards{{ $key }}" aria-expanded="false" aria-controls="sidebarDashboards{{ $key }}" @endif class="side-nav-link">
+        <i class="uil-home-alt"></i>
+        <span> {!! \App\Helpers\MenuHelper::menuName($menu) !!} </span>
         @if (count($menu->children) > 0)
-        <div class="collapse {{ $menu_element['parent_active_class'] ? 'show' : '' }}" id="sidebarDashboards{{ $key }}">
-            <ul class="side-nav-second-level">
-                @foreach ($menu->children as $sub_menu)
-                @php
-                $menu_element = App\Helpers\MenuHelper::MenuElement($sub_menu, request()->segment(2));
-                @endphp
-                <li class="{{ $menu_element['active_class'] ? 'menuitem-active' : '' }}">
-                    <a href="{{ $menu_element['menu_link'] }}">
-                        <span> {!! \App\Helpers\MenuHelper::menuName($sub_menu) !!} </span>
-                    </a>
-                </li>
-                @endforeach
-            </ul>
-        </div>
+        <span class="menu-arrow"></span>
         @endif
-    </li>
+    </a>
+    @if (count($menu->children) > 0)
+    <div class="collapse {{ $menu_element['parent_active_class'] ? 'show' : '' }}" id="sidebarDashboards{{ $key }}">
+        <ul class="side-nav-second-level">
+            @foreach ($menu->children as $sub_menu)
+            @php
+            $menu_element = App\Helpers\MenuHelper::MenuElement($sub_menu, request()->segment(2));
+            @endphp
+            <li class="{{ $menu_element['active_class'] ? 'menuitem-active' : '' }}">
+                <a href="{{ $menu_element['menu_link'] }}">
+                    <span> {!! \App\Helpers\MenuHelper::menuName($sub_menu) !!} </span>
+                </a>
+            </li>
+            @endforeach
+        </ul>
+    </div>
     @endif
+</li>
+@endif
 
     {{-- @if ($menu_element['show'])
                     <li class="side-nav-item {{ $menu_element['active_class'] }} {{ $menu_element['parent_active_class'] }}">
@@ -112,8 +117,8 @@
 @endif
 --}}{{-- 1st child end --}}{{--
                     </li>
-                @endif --}}
-@endforeach
+                    @endif --}}
+                    @endforeach
 <!--
             <li class="side-nav-title side-nav-item">Navigation</li>
 
@@ -735,9 +740,9 @@
                     </ul>
                 </div>
             </li> -->
-</ul>
+        </ul>
 
-<!-- Help Box -->
+        <!-- Help Box -->
 {{-- <div class="help-box text-white text-center">
             <a href="javascript: void(0);" class="float-end close-btn text-white">
                 <i class="mdi mdi-close"></i>

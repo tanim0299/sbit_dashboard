@@ -24,9 +24,9 @@
 
 					<div class="row myinput">
 
-			
 
-		
+
+
 
 						<div class="form-group mb-3 col-md-8">
 							<label>@lang('photo.title'): <span class="text-danger" style="font-size: 15px;">*</span></label>
@@ -35,7 +35,7 @@
 							</div>
 						</div>
 
-	
+
 
 						<div class="form-group mb-3 col-md-12">
 							<label>@lang('photo.image'):</label>
@@ -46,6 +46,15 @@
 							<img src="{{ asset($data->image) }}" style="max-height: 100px;">
 						</div>
 
+
+						<div class="form-group mb-3 col-md-12">
+							<label>Slider:</label>
+							<div class="input-group mt-2">
+								<input type="checkbox" value="1" <?php if ($data->slider == 1) {
+									echo "checked";
+								} ?> name="slider" id="slider">&nbsp;&nbsp;&nbsp;Slider Image
+							</div>
+						</div>
 
 
 

@@ -34,6 +34,8 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\TeacherstaffController;
 use App\Http\Controllers\SettingController;
 
+use App\Http\Controllers\FrontendController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -49,12 +51,79 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
 
-    return redirect('/login');
 
-});
+Route::get('/', [FrontendController::class, 'index']);
+Route::get('/page/{id}', [FrontendController::class, 'page']);
+Route::get('/principle_message', [FrontendController::class, 'principle_message']);
+Route::get('/presidentmessage', [FrontendController::class, 'presidentmessage']);
 
+Route::get('/managing_comitte', [FrontendController::class, 'managing_comitte']);
+Route::get('/presidents', [FrontendController::class, 'presidents']);
+Route::get('/principles', [FrontendController::class, 'principles']);
+Route::get('/donar', [FrontendController::class, 'donar']);
+Route::get('/ex_member', [FrontendController::class, 'ex_member']);
+Route::get('/memberdetails/{id}', [FrontendController::class, 'memberdetails']);
+
+Route::get('/teacherinfo', [FrontendController::class, 'teacherinfo']);
+Route::get('/staffinfo', [FrontendController::class, 'staffinfo']);
+Route::get('/teacherstaffdetails/{id}', [FrontendController::class, 'teacherstaffdetails']);
+
+Route::get('/admissioninfo/{id}', [FrontendController::class, 'admissioninfo']);
+
+Route::get('/examroutines', [FrontendController::class, 'examroutine']);
+Route::get('/examsyllabus', [FrontendController::class, 'examsyllabus']);
+Route::get('/examsuggession', [FrontendController::class, 'examsuggession']);
+
+Route::get('/academiccalenders', [FrontendController::class, 'academiccalenders']);
+Route::get('/classroutines', [FrontendController::class, 'classroutines']);
+Route::get('/holidaylists', [FrontendController::class, 'holidaylist']);
+
+
+
+Route::get('/allnotices', [FrontendController::class, 'allnotices']);
+Route::get('/photogallery', [FrontendController::class, 'photogallery']);
+Route::get('/videogallery', [FrontendController::class, 'videogallery']);
+
+Route::get('/noticesdetails/{id}', [FrontendController::class, 'notices']);
+Route::get('/events', [FrontendController::class, 'events']);
+
+
+
+Route::get('/agreements', [FrontendController::class, 'agreements']);
+Route::get('/industrialattachment', [FrontendController::class, 'industrialattachment']);
+Route::get('/industriesvisit', [FrontendController::class, 'industriesvisit']);
+Route::get('/nearindustries', [FrontendController::class, 'nearindustries']);
+Route::get('/internalresult/{id}', [FrontendController::class, 'internalresult']);
+
+Route::get('/class_routine/{id}', [FrontendController::class, 'class_routine']);
+Route::get('/syllabuss/{id}', [FrontendController::class, 'syllabus']);
+Route::get('/semesterplans/{id}', [FrontendController::class, 'semesterplan']);
+Route::get('/probidhans', [FrontendController::class, 'probidhan']);
+
+Route::get('/aboutdepartments/{id}', [FrontendController::class, 'aboutdepartment']);
+Route::get('/departmentteacher/{id}', [FrontendController::class, 'departmentteacher']);
+Route::get('/departmentteacherdetails/{id}', [FrontendController::class, 'departmentteacherdetails']);
+
+
+Route::get('/principledetails', [FrontendController::class, 'principledetails']);
+Route::get('/viceprincipledetails', [FrontendController::class, 'viceprincipledetails']);
+Route::get('/previousprinciples', [FrontendController::class, 'previousprinciples']);
+Route::get('/prevprincipledetails/{id}', [FrontendController::class, 'prevprincipledetails']);
+
+
+Route::get('/departmentemployee/{id}', [FrontendController::class, 'departmentemployee']);
+Route::get('/departmentemployeedetails/{id}', [FrontendController::class, 'departmentemployeedetails']);
+
+
+Route::get('/departmenthead/{id}', [FrontendController::class, 'departmenthead']);
+Route::get('/departmentstudent/{id}', [FrontendController::class, 'departmentstudent']);
+Route::get('/departmentstudentdetails/{id}', [FrontendController::class, 'departmentstudentdetails']);
+
+
+Route::get('/principledetails', [FrontendController::class, 'principledetails']);
+Route::get('/viceprincipledetails', [FrontendController::class, 'viceprincipledetails']);
+Route::get('/Previous_Principles', [FrontendController::class, 'Previous_Principles']);
 
 
 

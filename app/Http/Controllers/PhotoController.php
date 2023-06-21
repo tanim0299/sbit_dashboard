@@ -38,6 +38,7 @@ class PhotoController extends Controller
     {
        $data = array();
        $data['title']      = $request->title;
+       $data['slider']     = $request->slider;
        $image              = $request->file('image');
 
        if ($image) {
@@ -82,6 +83,7 @@ class PhotoController extends Controller
     {
       $data = array();
       $data['title']      = $request->title;
+      $data['slider']     = $request->slider;
       $image              = $request->file('image');
 
       $old_image = DB::table("photogallerys")->where('id',$id)->first();

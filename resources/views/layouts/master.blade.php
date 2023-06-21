@@ -1,19 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@php
+  $setting = DB::table('setting')->first();
+@endphp
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>{{ @$title }} | Najran BD PVT LTD</title>
+    <title>{{ @$title }} Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin panel which can be used to manage huge system." name="description">
-    <meta content="Najran BD PVT LTD" name="author">
+    <meta content="Adminpanel" name="author">
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset($setting->image) }}">
 
 
 
@@ -21,11 +26,10 @@
 
     @stack('header_styles')
 
-    
-
 </head>
 
-<body class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": false}'>
+<body class="loading"
+    data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": false}'>
     <!-- Begin page -->
     <div class="wrapper">
 
@@ -52,7 +56,7 @@
                         <div class="col-md-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> © Najran BD PVT LTD
+                            </script> © Adminpanel
                         </div>
                         <div class="col-md-6">
                             <div class="text-md-end footer-links d-none d-md-block">

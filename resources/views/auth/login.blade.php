@@ -1,17 +1,14 @@
 @extends('layouts.blank')
-
 @section('content')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xxl-4 col-lg-5">
                 <div class="card">
-
-                    <!-- Logo -->
-                    <div class="card-header pt-4 pb-4 text-center bg-primary">
-                        <a href="index.html">
-                            <span><img src="{{ asset('assets/images/logo.png') }}" alt="" height="18"></span>
-                        </a>
-                    </div>
 
                     <div class="card-body p-4">
 
@@ -35,12 +32,12 @@
                             </div>
 
                             <div class="mb-3">
-                                <a href="{{ route('password.request') }}" class="text-muted float-end"><small>Forgot your password?</small></a>
+                            
                                 <label for="password" class="form-label">Password</label>
                                 <div class="input-group input-group-merge">
                                     <input name="password" type="password" id="password" class="form-control" placeholder="Enter your password">
                                     <div class="input-group-text" data-password="false">
-                                        <span class="password-eye"></span>
+                                        <span class="fa fa-eye"></span>
                                     </div>
                                 </div>
                             </div>
@@ -61,12 +58,7 @@
                 </div>
                 <!-- end card -->
 
-                <div class="row mt-3">
-                    <div class="col-12 text-center">
-                        <p class="text-muted">Don't have an account? <a href="{{ route('register') }}" class="text-muted ms-1"><b>Sign Up</b></a></p>
-                    </div> <!-- end col -->
-                </div>
-                <!-- end row -->
+
 
             </div> <!-- end col -->
         </div>

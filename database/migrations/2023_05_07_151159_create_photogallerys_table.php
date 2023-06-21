@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->longText('title');
             $table->string('image')->nullable();
+            $table->integer('slider')->nullable();
             $table->timestamps();
         });
     }

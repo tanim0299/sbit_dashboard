@@ -42,6 +42,17 @@
 						</div>
 
 
+						<div class="form-group mb-3 col-md-12">
+							<label>Slider:</label>
+							<div class="input-group mt-2">
+								<input type="checkbox" value="1" name="slider" id="slider">&nbsp;&nbsp;&nbsp;Slider Image
+							</div>
+						</div>
+
+
+
+
+
 
 						<div class="modal-footer border-0">
 							<button type="button" class="btn btn-secondary border-0" onClick="window.location.reload();">@lang('actions.close')</button>
